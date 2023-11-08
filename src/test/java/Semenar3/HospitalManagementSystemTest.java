@@ -1,8 +1,6 @@
 package Semenar3;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,6 +23,14 @@ class HospitalManagementSystemTest {
     Doctor doctor2;
 
     Appointment appointment;
+    Appointment appointment1;
+    Appointment appointment2;
+    //Appointment appointments;
+
+    Date appointmentDate1 ;
+    Date appointmentDate2 ;
+
+
 
     HospitalManagementSystem hospitalManagementSystem;
 
@@ -33,9 +39,14 @@ class HospitalManagementSystemTest {
         patient1 = new Patient("Иван", "12345");
         patient2 = new Patient("Анна", "67890");
 
+        appointmentDate1 = new Date();
+        appointmentDate2 = new Date();
+
         doctor1 = new Doctor("Доктор Смит", "Кардиолог");
         doctor2 = new Doctor("Доктор Джонсон", "Хирург");
-        appointment =  new Appointment(doctor1,patient1, new Date() );
+
+        appointment1 =  new Appointment(doctor1,patient1, appointmentDate1 );
+        appointment2 =  new Appointment(doctor2,patient2, appointmentDate2 );
 
         // hospitalManagementSystem.addPatient(patient1);
         hospitalManagementSystem = new HospitalManagementSystem();
@@ -77,7 +88,7 @@ class HospitalManagementSystemTest {
     void removeDoctor() {
         hospitalManagementSystem.addDoctor(doctor1);
         hospitalManagementSystem.removeDoctor(doctor1);
-        assertTrue(!hospitalManagementSystem.getDoctors().contains(doctor1));
+        assertFalse(hospitalManagementSystem.getDoctors().contains(doctor1));
     }
 
     @Test
@@ -91,18 +102,22 @@ class HospitalManagementSystemTest {
 
     @Test
     void scheduleAppointment() {
-        List<Appointment> appointmentList = new ArrayList<>(Arrays.asList(appointment));
-        hospitalManagementSystem.scheduleAppointment(doctor1,patient1,new Date());
-        assertArrayEquals(appointmentList.toArray(), hospitalManagementSystem.getAppointments().toArray());
+        hospitalManagementSystem.scheduleAppointment(doctor1,patient1,appointmentDate1);
+        List<Appointment> appointments = hospitalManagementSystem.getAppointments();
+        assertEquals(1, appointments.size());
+
+        Appointment scheduledAppointment = appointments.get(0);
+        assertEquals(doctor1, scheduledAppointment.getDoctor());
+        assertEquals(patient1, scheduledAppointment.getPatient());
+        assertEquals(appointmentDate1, scheduledAppointment.getDate());
     }
 
-    @Test
-    void getAppointments() {
-        List<Appointment> appointmentList = new ArrayList<>();
-        appointmentList.add(appointment);
-        appointmentList.add(new Appointment(doctor2,patient1, new Date()));
-        assertArrayEquals(appointmentList.toArray(), hospitalManagementSystem.getAppointments().toArray());
+ @Test
 
-    }
+ void getAppointments() {
+    hospitalManagementSystem.scheduleAppointment(doctor1,patient1,appointmentDate1);
+     List<Appointment> appointments = hospitalManagementSystem.getAppointments();
+     assertEquals(1, appointments.size());
+ }
 
 }
