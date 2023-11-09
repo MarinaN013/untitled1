@@ -1,8 +1,8 @@
-package HomeWork_2;
+package HomeWork_2_1;
 
 import org.junit.jupiter.api.Test;
 
-import static HomeWork_2.BubbleSort.bubbleSort;
+import static HomeWork_2_1.BubbleSort.bubbleSort;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BubbleSortTest {

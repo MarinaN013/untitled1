@@ -1,4 +1,4 @@
-package HomeWork_2;
+package HomeWork_2_1;
 
 public class BubbleSort {
     public static void bubbleSort(int[] arr) {

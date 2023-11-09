@@ -1,4 +1,4 @@
-package HomeWork_2;
+package HomeWork_2_1;
 
 public class PrimeChecker {
     public static boolean isPrime(int num) {

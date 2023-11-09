@@ -1,4 +1,4 @@
-package HomeWork_2;
+package HomeWork_2_1;
 
 public class VowelCounter {
     public static int countVowels(String input) {
