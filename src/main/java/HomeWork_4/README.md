@@ -1,0 +1,1 @@
+Задача написать unit-тесты для BookService, используя Mockito для создания мок-объекта BookRepository.

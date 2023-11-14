@@ -18,7 +18,7 @@ class CarTest {
     @Test
     @DisplayName("экземпляр объекта Car является экземпляром Vehicle")
     void carInstanceOfVehicle() {
-        Vehicle car = new Car("Toyota", "Camry", 2022);
+         Vehicle car = new Car("Toyota", "Camry", 2022);
         assertTrue(true);
     }
 
@@ -39,4 +39,5 @@ class CarTest {
     void getNumWheels() {
         assertEquals(4, car.getNumWheels());
     }
+
 }
