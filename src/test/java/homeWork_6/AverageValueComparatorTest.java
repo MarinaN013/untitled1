@@ -1,9 +1,6 @@
 package homeWork_6;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,7 +40,6 @@ class AverageValueComparatorTest {
 
             assertEquals(expected, result);
         }
-
         @Test
         public void testCompareLists_EmptyLists() {
             List<Integer> list1 = Arrays.asList();
@@ -54,16 +50,4 @@ class AverageValueComparatorTest {
 
             assertEquals(expected, result);
         }
-
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
-    @Test
-    void compareLists() {
-    }
 }
